@@ -169,12 +169,13 @@ function parseJobList(jobData) {
         job.find(".job-search-card__location").text().trim() || "";
       const date = job.find("time").attr("datetime") || "";
       const salary =
-        job
-          .find(".job-search-card__salary-info")
-          .text()
-          .trim()
-          .replace(/\n/g, "")
-          .replaceAll(" ", "") || "";
+      job
+        .find(".job-search-card__salary-info")
+        .text()
+        .trim()
+        .replace(/\n/g, "")
+        .replace(/\s+/g, "") || "";
+    
       const jobUrl = job.find(".base-card__full-link").attr("href") || "";
       return {
         position: position,
